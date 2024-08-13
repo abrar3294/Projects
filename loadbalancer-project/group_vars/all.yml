@@ -1,0 +1,28 @@
+---
+web_servers:
+  - 192.168.164.6:80
+  - 192.168.164.6:5000
+  - 192.168.164.6:4382
+  - 192.168.164.6:7000
+
+haproxy_cfg: /etc/haproxy/haproxy.cfg
+
+apache_vhosts:
+  - servername: example1.com
+    documentroot: /var/www/html/example1
+    index_content: "Welcome to example1.com"
+  - servername: example2.com
+    documentroot: /var/www/html/example2
+    index_content: "Welcome to example2.com"
+  - servername: example3.com
+    documentroot: /var/www/html/example3
+    index_content: "Welcome to example3.com"  
+
+dns_records:
+  - name: example1.com
+    address: 192.168.164.6:5000
+  - name: example2.com
+    address: 192.168.164.6:4382
+  - name: example3.com
+    address: 192.168.164.6:7000
+

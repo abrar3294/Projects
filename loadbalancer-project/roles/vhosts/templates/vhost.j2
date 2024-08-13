@@ -1,0 +1,32 @@
+<VirtualHost *:5000>
+    ServerName 192.168.164.6
+    DocumentRoot /var/www/html/example1
+
+    <Directory /var/www//html/example1>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:4382>
+    ServerName 192.168.164.6
+    DocumentRoot /var/www/html/example2
+
+    <Directory /var/www/html/example2>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:7000>
+    ServerName 192.168.164.6
+    DocumentRoot /var/www/html/example3
+
+    <Directory /var/www/html/example3>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>

@@ -1,0 +1,24 @@
+---
+- name: Create document root directories
+  file:
+    path: "{{ item.documentroot }}"
+    state: directory
+    owner: apache
+    group: apache
+    mode: '0755'
+  loop: "{{ apache_vhosts }}"
+
+- name: Create virtual host configuration files
+  template:
+    src: vhost.j2
+    dest: "/etc/httpd/conf.d/virtualhosts.conf"
+
+- name: Create index.html file
+  copy:
+    content: "{{ item.index_content }}"
+    dest: "{{ item.documentroot }}/index.html"
+    owner: apache
+    group: apache
+    mode: '0644'
+  loop: "{{ apache_vhosts }}"
+

@@ -1,0 +1,39 @@
+- name: Add port 5000
+  firewalld:
+    port: 5000/tcp
+    permanent: yes
+    state: enabled
+
+- name: Add port 4382
+  firewalld:
+    port: 4382/tcp
+    permanent: yes
+    state: enabled 
+
+- name: Add port 7000
+  firewalld:
+    port: 7000/tcp
+    permanent: yes
+    state: enabled
+
+- name: Add port 80
+  firewalld:
+    port: 80/tcp
+    permanent: yes
+    state: enabled
+
+- name: Add httpd service to Firewalld
+  firewalld:
+    service: http
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+- name: Add https service to Firewalld
+  firewalld:
+    service: https
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+# add systemctl restart firewalld and httpd, this is what showed the websites for me

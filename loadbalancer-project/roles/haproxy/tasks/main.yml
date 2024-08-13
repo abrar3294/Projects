@@ -1,0 +1,21 @@
+---
+- name: Ensure EPEL repository is enabled
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install HAProxy
+  yum:
+    name: haproxy
+    state: present
+
+- name: Deploy HAProxy configuration
+  template:
+    src: haproxy.cfg.j2 
+    dest: "{{ haproxy_cfg }}"
+
+- name: Start and enable HAProxy
+  service:
+    name: haproxy
+    state: started
+    enabled: yes

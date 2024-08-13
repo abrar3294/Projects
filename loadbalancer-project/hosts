@@ -1,0 +1,5 @@
+[webservers]
+192.168.164.6
+
+[loadbalancers]
+192.168.164.14

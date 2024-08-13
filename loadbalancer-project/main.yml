@@ -1,0 +1,21 @@
+---
+
+- name: Install Apache and GIT, create virtual hosts, and set permissions for webservers
+  hosts: webservers
+  remote_user: ansible
+  become: yes
+
+  roles:
+    - webservers
+    - vhosts
+    - firewall
+
+
+
+- name: Install HAPROXY, deploy HAPROXY config, start and enable HAPROXY to lbservers
+  hosts: loadbalancers
+  remote_user: ansible
+  become: yes
+
+  roles:
+    - haproxy
